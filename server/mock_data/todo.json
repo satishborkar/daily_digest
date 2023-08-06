@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Buy groceries",
+    "description": "Get milk, eggs, bread, and vegetables.",
+    "status": "incomplete",
+    "dueDate": "2023-07-30",
+    "priority": "medium"
+  },
+  {
+    "title": "Finish report",
+    "description": "Complete the quarterly report for the project.",
+    "status": "incomplete",
+    "dueDate": "2023-08-05",
+    "priority": "high"
+  },
+  {
+    "title": "Exercise",
+    "description": "Go for a jog in the park.",
+    "status": "incomplete",
+    "dueDate": "2023-07-28",
+    "priority": "low"
+  },
+  {
+    "title": "Pay bills",
+    "description": "Pay electricity and internet bills.",
+    "status": "incomplete",
+    "dueDate": "2023-08-01",
+    "priority": "medium"
+  },
+  {
+    "title": "Read a book",
+    "description": "Read 'The Great Gatsby' by F. Scott Fitzgerald.",
+    "status": "incomplete",
+    "dueDate": "2023-08-10",
+    "priority": "medium"
+  }
+]

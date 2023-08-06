@@ -1,0 +1,555 @@
+{
+  "info": {
+    "_postman_id": "ae74487c-9605-4585-9706-8c767ed64700",
+    "name": "Daily Digest",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "5721820"
+  },
+  "item": [
+    {
+      "name": "Todos",
+      "item": [
+        {
+          "name": "Get all TODOs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{DD_URL}}api/v1/todos?sort=priority&fields=title,description,status,priority&priority[gte]=3",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "todos"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "priority"
+                },
+                {
+                  "key": "fields",
+                  "value": "title,description,status,priority"
+                },
+                {
+                  "key": "priority[gte]",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create TODO",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"React 18 App Development\",\n    \"description\": \"React 18 App Development\",\n    \"status\": \"incomplete\",\n    \"dueDate\": \"2023-09-05\",\n    \"priority\": \"high\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/todos",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "todos"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update TODO",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"discarded\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/todos/64c1774442829c092c8b8c97",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "todos", "64c1774442829c092c8b8c97"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete TODO",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Pay bills\",\n    \"description\": \"Pay electricity and internet bills.\",\n    \"status\": \"incomplete\",\n    \"dueDate\": \"2023-08-01\",\n    \"priority\": \"medium\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/todos/64c17840da74aaa624689b95",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "todos", "64c17840da74aaa624689b95"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get all USERS",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{DD_URL}}api/v1/users",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "users"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "priority",
+                  "disabled": true
+                },
+                {
+                  "key": "fields",
+                  "value": "title,description,status,priority",
+                  "disabled": true
+                },
+                {
+                  "key": "priority[gte]",
+                  "value": "3",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n                \"name\": \"Jay Batra\",\n                \"email\": \"jaybatra2022@gmail.com\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/users",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"role\":\"admin\"\n}"
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/users/64c801dd5d261cf5f8b67272",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "users", "64c801dd5d261cf5f8b67272"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete TODO",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Pay bills\",\n    \"description\": \"Pay electricity and internet bills.\",\n    \"status\": \"incomplete\",\n    \"dueDate\": \"2023-08-01\",\n    \"priority\": \"medium\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/users/64c17840da74aaa624689b95",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "users", "64c17840da74aaa624689b95"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "SignUp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Shruti Gupta\",\n    \"email\":\"jaybatra2023@gmail.com\",\n    \"password\":\"Qwerty123\",\n    \"confirmPassword\":\"Qwerty123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/auth/signup",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "auth", "signup"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\":\"jaybatra2022@gmail.com\",\n    \"password\":\"WelCome@#22\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/auth/login",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\":\"jaybatra2022@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/auth/forgot-password",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "auth", "forgot-password"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password from Email Link",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"password\":\"awesome123\",\n    \"confirmPassword\":\"awesome123\",\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/auth/reset-password/8fdab4b0eb8bdb20de6b21f2a4e016c60589caf122cb2769f236491de24b6e6b",
+              "host": ["{{DD_URL}}api"],
+              "path": [
+                "v1",
+                "auth",
+                "reset-password",
+                "8fdab4b0eb8bdb20de6b21f2a4e016c60589caf122cb2769f236491de24b6e6b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ChangePassword",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"password\":\"WelCome@#22\",\n    \"confirmPassword\":\"WelCome@#22\",\n    \"currentPassword\": \"awesome123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/auth/change-password",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "auth", "change-password"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\":\"jaybatra2022@gmail.com\",\n    \"password\":\"Qwerty123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/auth/logout",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "auth", "logout"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "LoggedUser[SELF]",
+      "item": [
+        {
+          "name": "Root Level",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{DD_URL}}api/v1/user",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "user"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Root Level - II",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{DD_URL}}api/v1/user/profile",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "user", "profile"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Profile/Me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/user/profile/me",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "user", "profile", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Profile/Update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "phone",
+                  "value": "+919876543212",
+                  "type": "text"
+                },
+                {
+                  "key": "photo",
+                  "type": "file",
+                  "src": "/Users/shruti/Desktop/Screen Shot 2022-11-29 at 7.32.51 PM.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/user/profile/update",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "user", "profile", "update"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deactivate User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"role\": \"admin\",\n    \"phone\":\"+919876543212\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{DD_URL}}api/v1/user/profile/deactivate",
+              "host": ["{{DD_URL}}api"],
+              "path": ["v1", "user", "profile", "deactivate"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Sample Error Page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:4000/api/v1/todos/all",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "4000",
+          "path": ["api", "v1", "todos", "all"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
