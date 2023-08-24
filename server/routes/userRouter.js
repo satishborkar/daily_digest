@@ -27,6 +27,7 @@ router
   .delete(userController.NotValid);
 
 router.get("/profile/me", userController.getMyDetails, usersController.getUser);
+
 router.patch(
   "/profile/update",
   userController.uploadUserPhoto,

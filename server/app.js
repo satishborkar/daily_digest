@@ -1,5 +1,5 @@
-const cookieParser = require("cookie-parser");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const { rateLimit } = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
@@ -12,7 +12,6 @@ const userRouter = require("./routes/userRouter");
 const usersRouter = require("./routes/usersRouter");
 const todosRouter = require("./routes/todosRouter");
 const globalAppErrorHandler = require("./controllers/errorsController");
-
 const AppError = require("./utils/appError");
 
 const app = express();

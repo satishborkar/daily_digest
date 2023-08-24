@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema(
       // This will not return password field in response
       select: false,
       validate: {
-        // Validating password again conform password fields while creating and saving an user
+        // Validating password against confirm password fields while creating and saving an user
         validator: function (el) {
           if (this.password) return el === this.password;
           return;

@@ -167,7 +167,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     const resetUrl = `${req.protocol}://${req.get(
       "host"
     )}/api/v1/users/reset-password/${resetToken}`;
+
     await new Email(user, resetUrl).sendPasswordReset();
+
     res.status(200).json({
       status: "success",
       message:
@@ -242,7 +244,7 @@ exports.changePassword = catchAsync(async (req, res, next) => {
     !(await user.comparePasswords(req.body.currentPassword, user.password))
   ) {
     return next(
-      new AppError("Incorrect existing password, please tray gain", 401)
+      new AppError("Incorrect existing password, please try again", 401)
     );
   }
 
@@ -253,4 +255,11 @@ exports.changePassword = catchAsync(async (req, res, next) => {
 
   // once user update anytime we have to create & share new token with client
   generateTokenAndSendResponse(user, 200, res, next);
+});
+
+exports.refreshToken = catchAsync(async (req, res, next) => {
+  res.status(200).json({
+    status: "success",
+    message: "Token is provided",
+  });
 });
